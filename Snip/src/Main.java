@@ -1,44 +1,53 @@
+
 import javax.swing.*;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
-
         int opcion = 0;
-        String data = "Anda a descansarrrrrrrrrr";
-        File archivo = new File("texto.txt");
-        FileReader leer = new FileReader(archivo);
-        FileWriter escribir = new FileWriter(archivo,true);
-
-        for (int i = 0; i< 5 ; i++){
-            escribir.write(data);
-        }
 
         do {
 
             try {
+                opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu" +
+                        "\n1. Leemos ?" +
+                        "\n2. Escribo ?" +
+                        "\n3. gg" +
+                        "\n4. Retirada Estrategica"));
 
-                opcion = Integer.parseInt(JOptionPane.showInputDialog(null,"Menu de opciones\n\n"
-                +"1. Leer archivo\n\n"
-                        +"2. Crear archivo\n\n"
-                +"3. Cerrar \n\n"));
-
-                switch (opcion){
-                    case 1 : int c = leer.read();
-                        while (c != -1 ){
-                            System.out.println((char)c);
-                        }
+                switch (opcion) {
+                    case 1:// Lectura y reproduccion del archivo
+                    {
+                        leer();
+                    }
+                    break;
+                    case 2:// Escribo el archivo ;
+                    {
+                        String data = JOptionPane.showInputDialog(null, "que queres escribir?");
+                        Objetos.getEscribir().write("\t" + data);
+                        Objetos.getEscribir().close();
+                    }
+                    break;
+                    case 3: {
+                        System.out.println("nadapor aqui y por alla ?");
+                    }
+                    break;
+                    default:
+                        System.out.println("Gg nico");
                 }
+            } catch (NumberFormatException e) {
 
-            }catch (NumberFormatException numberFormatException){
-                System.out.println(numberFormatException.getMessage());
             }
 
-        }while (opcion != 3);
+        } while (opcion != 4);
+    }
 
+    public static void leer() throws IOException {
+        int c = Objetos.getLeer().read();
+        while (c != -1) {
+            c = Objetos.getLeer().read();
+        }
     }
 
 }
