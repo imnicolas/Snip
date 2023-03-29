@@ -11,10 +11,9 @@ public class Main {
 
             try {
                 opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu" +
-                        "\n1. Leemos ?" +
-                        "\n2. Escribo ?" +
-                        "\n3. gg" +
-                        "\n4. Retirada Estrategica"));
+                        "\n1. Leer archivo ?" +
+                        "\n2. Escribir archivo ?" +
+                        "\n3. Cerrar el chiringuito"));
 
                 switch (opcion) {
                     case 1:// Lectura y reproduccion del archivo
@@ -24,29 +23,26 @@ public class Main {
                     break;
                     case 2:// Escribo el archivo ;
                     {
-                        String data = JOptionPane.showInputDialog(null, "que queres escribir?");
-                        Objetos.getEscribir().write("\t" + data);
+                        String data = JOptionPane.showInputDialog(null, " que queres escribir? ");
+                        Objetos.getEscribir().write("\t" + " " + data);
                         Objetos.getEscribir().close();
                     }
                     break;
-                    case 3: {
-                        System.out.println("nadapor aqui y por alla ?");
-                    }
-                    break;
                     default:
-                        System.out.println("Gg nico");
+                        System.out.println(" Gg nico ");
                 }
             } catch (NumberFormatException e) {
 
             }
 
-        } while (opcion != 4);
+        } while (opcion != 3);
     }
 
     public static void leer() throws IOException {
         int c = Objetos.getLeer().read();
         while (c != -1) {
             c = Objetos.getLeer().read();
+            System.out.print((char) c);
         }
     }
 
