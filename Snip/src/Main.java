@@ -2,7 +2,8 @@
 import javax.swing.*;
 import java.io.IOException;
 
-public class Main {
+public class
+Main {
 
     public static void main(String[] args) throws IOException {
         int opcion = 0;
@@ -45,8 +46,11 @@ public class Main {
 
     public static void leer() throws IOException {
         int c = Objetos.getLeer().read();
+        char x ;
         while (c != -1) {
             c = Objetos.getLeer().read();
+            x = (char)c;
+            System.out.print(x);
         }
     }
 
