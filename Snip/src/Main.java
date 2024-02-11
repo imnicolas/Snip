@@ -12,7 +12,7 @@ Main {
 
             try {
                 opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu" +
-                        "\n1. Leemos ?" +
+                        "\n1. Leemos ? " +
                         "\n2. Escribo ?" +
                         "\n3. gg" +
                         "\n4. Retirada Estrategica"));
